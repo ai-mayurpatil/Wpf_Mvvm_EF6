@@ -41,19 +41,19 @@
 
         <TextBox Name="txtId"
                  Grid.Row="1"
-                 Grid.Column="1" Margin="5,8"/>
+                 Grid.Column="1" Margin="5,8" Text="{Binding Path=CurrentEmployee.Id,Mode=TwoWay}"/>
         <TextBox Name="txtName"
                  Grid.Row="2"
-                 Grid.Column="1" Margin="5,8"/>
+                 Grid.Column="1" Margin="5,8" Text="{Binding Path=CurrentEmployee.Name,Mode=TwoWay}"/>
         <TextBox Name="txtAge"
                  Grid.Row="3"
-                 Grid.Column="1" Margin="5,8"/>
+                 Grid.Column="1" Margin="5,8" Text="{Binding Path=CurrentEmployee.Age,Mode=TwoWay}"/>
 
         <StackPanel Orientation="Horizontal"
                     Grid.Row="4"
                     Grid.Column="1">
             <Button Name="btnAdd"
-                    Content="ADD" Margin="5,8"/>
+                    Content="ADD" Margin="5,8" Command="{Binding Path=SaveCommand}"/>
             <Button Name="btnSearch"
                     Content="Search" Margin="5,8"/>
             <Button Name="btnUpdate"
@@ -63,12 +63,13 @@
         </StackPanel>
         <TextBlock Name="txtBlockMessage"
                    Grid.Row="5"
-                   Grid.Column="1" Margin="5,8"/>
+                   Grid.Column="1" Margin="5,8" Text="{Binding Path=Message}"/>
         <DataGrid Name="dgEmployees"
                   AutoGenerateColumns="False"
                   Grid.Row="6"
                   Grid.Column="1" Margin="5,8"
-                  ItemsSource="{Binding Path=EmployeeList}">
+                  ItemsSource="{Binding Path=EmployeeList,Mode=TwoWay}"
+                  >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Emplyee Id"
                                     Width="auto"
