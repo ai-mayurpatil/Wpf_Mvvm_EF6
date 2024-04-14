@@ -57,7 +57,7 @@
             <Button Name="btnSearch"
                     Content="Search" Margin="5,8" Command="{Binding Path=SearchCommand}"/>
             <Button Name="btnUpdate"
-                    Content="Update" Margin="5,8"/>
+                    Content="Update" Margin="5,8" Command="{Binding Path=UpdateCommand}"/>
             <Button Name="btnDelete"
                     Content="Delete" Margin="5,8"/>
         </StackPanel>

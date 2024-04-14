@@ -29,6 +29,7 @@ namespace WPF_MVVM_EF6_MSSQL.ViewModels
             CurrentEmployee = new Employee();
             saveCommand = new RelayCommand(Save);
             searchCommand = new RelayCommand(Search);
+            updateCommand = new RelayCommand(Update);
         }
 
         #region Display_Operation
@@ -120,11 +121,44 @@ namespace WPF_MVVM_EF6_MSSQL.ViewModels
             catch (Exception ex)
             {
 
-                
+                Message = ex.Message;
             }
         }
 
         #endregion
+
+        #region UpdateOperation
+        private RelayCommand updateCommand;
+
+        public RelayCommand UpdateCommand
+        {
+            get { return updateCommand; }
+            
+        }
+
+        public void Update()
+        {
+            try
+            {
+                var IsUpdated = ObjEmployeeService.Update(CurrentEmployee);
+                if(IsUpdated)
+                {
+                    Message = "Employee Updated";
+                    LoadData();
+                }
+                else
+                {
+                    Message = "Update OPeration Failed";
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Message = ex.Message;
+            }
+        }
+        #endregion
+
 
     }
 }
