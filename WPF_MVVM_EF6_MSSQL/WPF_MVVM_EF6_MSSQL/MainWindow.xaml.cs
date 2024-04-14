@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_MVVM_EF6_MSSQL.ViewModels;
 
 namespace WPF_MVVM_EF6_MSSQL
 {
@@ -20,9 +21,12 @@ namespace WPF_MVVM_EF6_MSSQL
     /// </summary>
     public partial class MainWindow : Window
     {
+        EmployeeViewModel ViewModel;
         public MainWindow()
         {
             InitializeComponent();
+            ViewModel = new EmployeeViewModel();
+            this.DataContext = ViewModel;
         }
     }
 }
