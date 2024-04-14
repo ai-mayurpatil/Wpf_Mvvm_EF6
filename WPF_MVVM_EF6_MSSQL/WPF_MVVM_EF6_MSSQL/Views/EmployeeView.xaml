@@ -59,7 +59,7 @@
             <Button Name="btnUpdate"
                     Content="Update" Margin="5,8" Command="{Binding Path=UpdateCommand}"/>
             <Button Name="btnDelete"
-                    Content="Delete" Margin="5,8"/>
+                    Content="Delete" Margin="5,8" Command="{Binding Path=DeleteCommand}"/>
         </StackPanel>
         <TextBlock Name="txtBlockMessage"
                    Grid.Row="5"

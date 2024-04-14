@@ -30,6 +30,7 @@ namespace WPF_MVVM_EF6_MSSQL.ViewModels
             saveCommand = new RelayCommand(Save);
             searchCommand = new RelayCommand(Search);
             updateCommand = new RelayCommand(Update);
+            deleteCommand = new RelayCommand(Delete);
         }
 
         #region Display_Operation
@@ -91,7 +92,6 @@ namespace WPF_MVVM_EF6_MSSQL.ViewModels
             }
         }
         #endregion
-
 
         #region SearchOperation
         private RelayCommand searchCommand;
@@ -157,6 +157,39 @@ namespace WPF_MVVM_EF6_MSSQL.ViewModels
                 Message = ex.Message;
             }
         }
+        #endregion
+
+        #region Deleteoperation
+        private RelayCommand deleteCommand;
+
+        public RelayCommand DeleteCommand
+        {
+            get { return deleteCommand; }
+            
+        }
+
+        public void Delete()
+        {
+            try
+            {
+                var IsDelete = ObjEmployeeService.Delete(CurrentEmployee.Id);
+                if(IsDelete)
+                {
+                    Message = "Employee Deleted";
+                    LoadData();
+                }
+                else
+                {
+                    Message = "Delete operation failed";
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Message = ex.Message;
+            }
+        }
+
         #endregion
 
 
