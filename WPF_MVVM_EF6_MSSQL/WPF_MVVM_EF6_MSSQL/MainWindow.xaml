@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_MVVM_EF6_MSSQL"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        xmlns:vw="clr-namespace:WPF_MVVM_EF6_MSSQL.Views">
     <Grid>
-        
+        <!-- Embed the EmployeeView in the Grid -->
+        <vw:EmployeeView />
     </Grid>
 </Window>
