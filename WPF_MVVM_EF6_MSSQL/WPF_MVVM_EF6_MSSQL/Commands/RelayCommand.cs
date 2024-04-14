@@ -7,6 +7,7 @@ using System.Windows.Input;
 
 namespace WPF_MVVM_EF6_MSSQL.Commands
 {
+    #region Old_Relay_Comand
     public class RelayCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
@@ -25,4 +26,13 @@ namespace WPF_MVVM_EF6_MSSQL.Commands
             DoWork();
         }
     }
+    #endregion
+
+
+
+
+
 }
+
+
+

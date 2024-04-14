@@ -28,7 +28,7 @@ namespace WPF_MVVM_EF6_MSSQL.ViewModels
             LoadData();
             CurrentEmployee = new Employee();
             saveCommand = new RelayCommand(Save);
-            
+            searchCommand = new RelayCommand(Search);
         }
 
         #region Display_Operation
@@ -92,7 +92,39 @@ namespace WPF_MVVM_EF6_MSSQL.ViewModels
         #endregion
 
 
+        #region SearchOperation
+        private RelayCommand searchCommand;
 
+        public RelayCommand SearchCommand
+        {
+            get { return searchCommand; }
+            
+        }
+
+        public void Search()
+        {
+            try
+            {
+                var ObjEmployee = ObjEmployeeService.Search(currentEmployee.Id);
+                if(ObjEmployee!=null)
+                {
+                    CurrentEmployee.Name = ObjEmployee.Name;
+                    CurrentEmployee.Age = ObjEmployee.Age;
+
+                }
+                else
+                {
+                    Message = "Employee Not found";
+                }
+            }
+            catch (Exception ex)
+            {
+
+                
+            }
+        }
+
+        #endregion
 
     }
 }
